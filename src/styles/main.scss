@@ -1,0 +1,113 @@
+/* Variables */
+$primary-color: #77B3AA; /* Example muted green */
+$secondary-color: #6c757d;
+$background-color: #f8f9fa;
+$text-color: #333;
+$light-gray: #e0e0e0;
+$border-radius: 4px;
+$box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+$transition-duration: 0.3s;
+
+$base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+/* Global Styles */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%; /* Ensure full height */
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+body {
+  font-family: $base-font-family;
+  background-color: $background-color;
+  color: $text-color;
+  line-height: 1.6;
+  flex: 1; /* Flex grow to fill available space */
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: $primary-color;
+  text-decoration: none;
+  &:hover {
+     text-decoration: underline;
+   }
+}
+
+/* Centering the main content */
+main {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  padding: 20px;
+  background-color: $background-color;
+}
+
+/* Layout Styles */
+.header {
+  background-color: $primary-color;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer {
+  background-color: $secondary-color;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+}
+
+/* Component Styles */
+.search-input {
+  width: 100%;
+  max-width: 500px; /* Makes the search bar not too wide */
+  padding: 15px 10px;
+  margin: 20px auto; /* Center the search bar */
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  background-color: #ececec;
+}
+
+.book-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  width: 100%;
+  max-width: 1200px; /* Max width to prevent overly stretched items */
+  margin: auto; /* Center the grid */
+}
+
+.book-card {
+  border: 1px solid $light-gray;
+  border-radius: $border-radius;
+  overflow: hidden;
+  text-align: center;
+  background: white;
+  box-shadow: $box-shadow;
+  transition: transform $transition-duration ease-in-out, box-shadow $transition-duration ease-in-out;
+
+  &:hover {
+    transform: translateY(-5px); /* Adds a lift effect */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  }
+}
+
+/* Responsive Design */
+@media only screen and (max-width: 600px) {
+  .book-list {
+    grid-template-columns: 1fr;
+  }
+}
