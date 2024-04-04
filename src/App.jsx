@@ -1,28 +1,29 @@
 import { useEffect, useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import './App.css'
 import './styles/main.scss'
 
 import Layout from './components/Layout';
 import BookList from './components/BookList';
-import Search from './components/Search';
+import SearchResults from './components/SearchResults'
 
 
 function App() {
   const [books, setBooks] = useState([])
 
-  const fetchBooks = () => {
-    fetch(`https://openlibrary.org/search.json?title=${encodeURIComponent(query)}&page=${page}&limit=${limit}`)
+  const fetchBooks = async (query) => {
+    fetch(`https://openlibrary.org/search.json?q=${encodeURIComponent(query)}`)
       .then(response => response.json())
       .then(data => {
-        setBooks(data.works.map(work => work.title));
+        setBooks(data.docs.map(doc => doc.title));
       })
-      .catch(error => console.error("Error books:", error));
+      .catch(error => console.error("Error fetching books:", error));
   };
+  
+  
 
   useEffect(()=> {
     fetchBooks("James Bond")
-  })
+  }, [])
 
   const handleSearchSubmit = (query) => {
     fetchBooks(query);
@@ -35,9 +36,10 @@ function App() {
           <Route path="/" element={
             <>
             
-            <BookList books={books} />
+            <SearchResults books={books} />
             </>
           } />
+          <Route path="/book/:bookId" element={<BookList />} />
         </Routes>
       </Layout>
     </Router>

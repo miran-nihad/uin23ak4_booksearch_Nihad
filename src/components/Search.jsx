@@ -11,8 +11,14 @@ export default function Search({ onSearchChange }) {
 
     const handleSumbit = (e) => {
         e.preventDefault();
-        onSearchChange(inputValue);
+        if (inputValue.length >= 3) {
+            onSearchChange(inputValue);
+        } else {
+            alert("Må minst ha 3 bokstaver for å søke på bøker")
+        }
+        
     };
+
   return (
     <form onSubmit={handleSumbit}>
       <input

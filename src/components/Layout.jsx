@@ -1,6 +1,8 @@
+import React from "react"
 import {Link} from "react-router-dom"
+import Search from "./Search"
 
-export default function Layout() {
+export default function Layout({children, onSearchChange}) {
     return(
         <div id="container">
             <header>
