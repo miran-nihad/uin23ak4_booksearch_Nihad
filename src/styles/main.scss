@@ -1,113 +1,111 @@
-/* Variables */
-$primary-color: #77B3AA; /* Example muted green */
-$secondary-color: #6c757d;
-$background-color: #f8f9fa;
-$text-color: #333;
-$light-gray: #e0e0e0;
-$border-radius: 4px;
-$box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-$transition-duration: 0.3s;
-
-$base-font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-
-/* Global Styles */
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  height: 100%; /* Ensure full height */
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
 body {
-  font-family: $base-font-family;
-  background-color: $background-color;
-  color: $text-color;
-  line-height: 1.6;
-  flex: 1; /* Flex grow to fill available space */
-}
-
-img {
-  max-width: 100%;
-  height: auto;
-}
-
-a {
-  color: $primary-color;
-  text-decoration: none;
-  &:hover {
-     text-decoration: underline;
-   }
-}
-
-/* Centering the main content */
-main {
-  flex-grow: 1;
-  display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Center vertically */
-  padding: 20px;
-  background-color: $background-color;
-}
-
-/* Layout Styles */
-.header {
-  background-color: $primary-color;
-  color: white;
-  padding: 20px 0;
-  text-align: center;
-}
-
-.footer {
-  background-color: $secondary-color;
-  color: white;
-  text-align: center;
-  padding: 10px 0;
-}
-
-/* Component Styles */
-.search-input {
-  width: 100%;
-  max-width: 500px; /* Makes the search bar not too wide */
-  padding: 15px 10px;
-  margin: 20px auto; /* Center the search bar */
-  border: 1px solid $light-gray;
-  border-radius: $border-radius;
-  background-color: #ececec;
-}
-
-.book-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  width: 100%;
-  max-width: 1200px; /* Max width to prevent overly stretched items */
-  margin: auto; /* Center the grid */
-}
-
-.book-card {
-  border: 1px solid $light-gray;
-  border-radius: $border-radius;
-  overflow: hidden;
-  text-align: center;
-  background: white;
-  box-shadow: $box-shadow;
-  transition: transform $transition-duration ease-in-out, box-shadow $transition-duration ease-in-out;
-
-  &:hover {
-    transform: translateY(-5px); /* Adds a lift effect */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background-color: #f8f9fa;
+    color: #2d3748;
+    flex-direction: column;
   }
-}
-
-/* Responsive Design */
-@media only screen and (max-width: 600px) {
-  .book-list {
-    grid-template-columns: 1fr;
+  
+  /* Centering the main content */
+  main {
+    display: flex;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
+    padding: 20px;
+    background-color: #f8f9fa;;
   }
-}
+  
+  /* Layout Styles */
+  .header {
+    background-color: rgb(32, 127, 178);
+    color: white;
+    padding: 25px 0;
+    text-align: center;
+  }
+  
+  
+  /* Component Styles */
+  .search-input {
+    width: 100%;
+    max-width: 500px; /* Makes the search bar not too wide */
+    padding: 10px;
+    margin: 20px auto; /* Center the search bar */
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    background-color: #ececec;
+  }
+  
+  .bookSearch {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 100%;
+    padding: 20px 20px 0;
+    margin-top: 25px;
+    box-sizing: border-box;
+  
+    .bookCard {
+      width: calc(33.33% - 20px);
+      margin-bottom: 20px;
+      border: 1px solid #4c51bf; /* Lys grå ramme */
+      border-radius: 10px;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: #f3f1f1; /* Hvit bakgrunn */
+  
+      h3 {
+        margin-top: 10px;
+      }
+  
+      p {
+        margin: 15px 0;
+         /* Mørk grå tekstfarge */
+      }
+    }
+  }
+  
+  
+  .searchButton {
+    background-color: #4c51bf; /* Lilla bakgrunnsfarge */
+    color: #fff; /* Hvit tekstfarge */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 15px;
+    margin: 15px;
+  }
+  
+  .amazonButton{
+    background-color: #4c51bf; /* Lilla bakgrunnsfarge */
+    color: #fff; /* Hvit tekstfarge */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-bottom: 40px;
+  }
+  
+  
+  /* Responsive Design */
+  @media only screen and (max-width: 600px) {
+    .book-list {
+      grid-template-columns: 1fr;
+    }
+  }
+  
+  @media only screen and (max-width: 600px) {
+    .book-list {
+      grid-template-columns: 1fr;
+    }
+  
+    .header, .footer {
+      padding: 10px 0;
+    }
+  
+    .search-input {
+      padding: 10px;
+      margin: 10px auto;
+    }
+  }
+  
+  

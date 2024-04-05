@@ -4,7 +4,7 @@ import Search from "./Search"
 
 export default function Layout({children, onSearchChange}) {
     return(
-        <div id="container">
+        <div>
             <header>
                 <Link to="/">
                     <h1 className="header">Boksøk</h1>
@@ -13,7 +13,7 @@ export default function Layout({children, onSearchChange}) {
             </header>
             <main>{children}</main>
             <footer>
-
+                <h3>Books</h3>
             </footer>
 
         </div>

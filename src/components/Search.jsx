@@ -20,14 +20,16 @@ export default function Search({ onSearchChange }) {
     };
 
   return (
-    <form onSubmit={handleSumbit}>
-      <input
-        type="text"
-        placeholder="Search books..."
-        value={inputValue}
-        onChange={handleInputChange}
-      />
-      <button type="sumbit">Søk</button>
-    </form>
+    <div className="search-input">
+      <form onSubmit={handleSumbit}>
+        <input
+          type="search"
+          placeholder="Search books..."
+          value={inputValue}
+          onChange={handleInputChange}
+        />
+        <button type="sumbit" className="searchButton">Søk</button>
+      </form>
+    </div>
   );
 }
